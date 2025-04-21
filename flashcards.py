@@ -1,25 +1,14 @@
-class User:
-    def __init__(self, name, email):
-        self.name = name
-        self.email = email
-    
-    def display_info(self):
-        return f"User: {self.name}, Email: {self.email}"
-    
+import json
 
-    class Student(User):
-        def __init__(self, name, email, student_id):
-            super().__init__(name, email)  # Call the parent class constructor
-            self.student_id = student_id
+class Car:
+    def __init__(self, make, model, year, image=None):
+        self.make = make
+        self.model = model
+        self.year = year
+        self.image = image
     
     def display_info(self):
-        return f"Student: {self.name}, Email: {self.email}, Student ID: {self.student_id}"
+        return f"{self.year} {self.make} {self.model}"
     
-
-    class Teacher(User):
-        def __init__(self, name, email, subject):
-            super().__init__(name, email)
-            self.subject = subject
-    
-    def display_info(self):
-        return f"Teacher: {self.name}, Email: {self.email}, Subject: {self.subject}"
+    def to_dict(self):
+        return {"make": self.make, "model": self.model, "year": self.year, "image": self.image}
