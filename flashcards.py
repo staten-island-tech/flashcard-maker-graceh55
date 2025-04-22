@@ -1,14 +1,29 @@
 import json
 
-class Car:
-    def __init__(self, make, model, year, image=None):
-        self.make = make
-        self.model = model
-        self.year = year
-        self.image = image
+class Flashcards:
+    def __init__(self, question, answer):
+        self.question = question
+        self.answer = answer
+
     
     def display_info(self):
-        return f"{self.year} {self.make} {self.model}"
+        return f"{self.question} {self.answer}"
     
     def to_dict(self):
-        return {"make": self.make, "model": self.model, "year": self.year, "image": self.image}
+        return {"question": self.question, "answer": self.answer}
+
+my_flashcards = Flashcards("apple", "red")
+print(Flashcards.display_info())
+
+flashcards_list = [
+    Flashcards("apple", "red"),
+    Flashcards("banana", "yellow"),
+    Flashcards("tangerine", "orange")
+]
+
+# Convert objects to dictionaries
+flashcards_data = [Flashcards.to_dict() for flashcard in flashcards_list]
+
+# Save to a JSON file
+with open("cars.json", "w") as file:
+    json.dump(flashcards_data, file, indent=4)
