@@ -12,8 +12,8 @@ class Flashcards:
     def to_dict(self):
         return {"question": self.question, "answer": self.answer}
 
-my_flashcards = Flashcards("apple", "red")
-print(Flashcards.display_info())
+""" my_flashcards = Flashcards("apple", "red")
+print(my_flashcards.display_info()) """
 
 flashcards_list = [
     Flashcards("apple", "red"),
@@ -21,9 +21,20 @@ flashcards_list = [
     Flashcards("tangerine", "orange")
 ]
 
+
 # Convert objects to dictionaries
-flashcards_data = [Flashcards.to_dict() for flashcard in flashcards_list]
+flashcards_data = [flashcard.to_dict() for flashcard in flashcards_list]
 
 # Save to a JSON file
-with open("cars.json", "w") as file:
+with open("flashcard.json", "w") as file:
     json.dump(flashcards_data, file, indent=4)
+
+streak = 0
+for Flashcard in flashcards_list:
+    user_input = input(f{self.question})
+    if input == Flashcards.answer:
+        streak = streak =+ 1
+        print("Streak", streak "🔥")
+    else:
+        streak = 0
+        print("Streak lost :()")
