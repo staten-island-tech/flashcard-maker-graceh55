@@ -30,11 +30,17 @@ with open("flashcard.json", "w") as file:
     json.dump(flashcards_data, file, indent=4)
 
 streak = 0
-for Flashcard in flashcards_list:
-    user_input = input(f{self.question})
-    if input == Flashcards.answer:
-        streak = streak =+ 1
-        print("Streak", streak "🔥")
+total_flashcards = 3
+
+while streak < total_flashcards:
+    for flashcard in flashcards_list:
+        user_input = input(f"What color is a {flashcard.question}? ")
+        if user_input == flashcard.answer:
+            streak += 1
+        print("Streak", streak, "🔥")
     else:
         streak = 0
-        print("Streak lost :()")
+        print("Streak lost :(")
+        
+    if streak == total_flashcards:
+        print("Congratulations!!")
